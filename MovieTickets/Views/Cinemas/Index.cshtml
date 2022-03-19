@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Data.Domain.Actor>
+﻿@model IEnumerable<Data.Domain.Cinema>
 
 @{
-    ViewData["Title"] = "List of Actors";
+    ViewData["Title"] = "List of Cinemas";
 }
 
 <div class="row">
@@ -10,10 +10,10 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    <th>@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
-                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Birthdate)</th>
-                    <th>@Html.DisplayNameFor(model => model.PlaceOfBirth)</th>
+                    <th>@Html.DisplayNameFor(model => model.Logo)</th>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -22,16 +22,16 @@
                 {
                 <tr>
                     <td class="align-middle">
-                        <img class="rounded" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 150px" />
+                        <img class="rounded" src="@item.Logo" alt="@item.Name" style="max-width: 150px" />
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.FullName)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.Birthdate)
+                        @Html.DisplayFor(modelItem => item.Address)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.PlaceOfBirth)
+                        @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td class="align-middle">
                         <a class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i>Edit </a> |

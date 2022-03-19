@@ -16,8 +16,8 @@ namespace MovieTickets.Controllers
         //TODO: Need to fix ActorViewModel
         public IActionResult Index()
         {
-            var data = _context.Actors.ToList();
-            return View(data);
+            var allActors = _context.Actors.ToList();
+            return View(allActors);
         }
     }
 }
