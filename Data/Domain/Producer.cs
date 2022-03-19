@@ -14,7 +14,10 @@ namespace Data.Domain
 
         public string ProfilePictureURL { get; set; }
         public string FullName { get; set; }
-        public string Bio { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime Birthdate { get; set; }
+        public string PlaceOfBirth { get; set; }
 
         //Relations
         public List<Movie> Movies { get; set; }

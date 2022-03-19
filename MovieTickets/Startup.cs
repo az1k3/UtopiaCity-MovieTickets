@@ -1,3 +1,4 @@
+using Data.Seed;
 using DataAccessLayer.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -58,6 +59,10 @@ namespace MovieTickets
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //Data seed
+            AppDbInitializer.Seed(app);
+
         }
     }
 }
