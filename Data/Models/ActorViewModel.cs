@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Domain
+namespace Data.Models
 {
-    public class Actor
+    public class ActorViewModel
     {
         [Key]
         public int Id { get; set; }
@@ -24,8 +24,5 @@ namespace Data.Domain
 
         [Display(Name = "Place of Birth")]
         public string PlaceOfBirth { get; set; }
-
-        //Relations
-        public List<Actor_Movie> Actors_Movies { get; set; }
     }
 }

@@ -13,10 +13,11 @@ namespace MovieTickets.Controllers
             _context = context;
         }
 
+        //TODO: Need to fix ActorViewModel
         public IActionResult Index()
         {
             var data = _context.Actors.ToList();
-            return View();
+            return View(data);
         }
     }
 }
