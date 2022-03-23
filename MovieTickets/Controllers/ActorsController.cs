@@ -1,4 +1,4 @@
-﻿using BusinessLogic.Services;
+﻿using BusinessLogic.Services.Base;
 using Data.Domain;
 using DataAccessLayer.Contexts;
 using Microsoft.AspNetCore.Mvc;

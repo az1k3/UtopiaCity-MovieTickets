@@ -1,4 +1,5 @@
-﻿using Data.Domain;
+﻿using BusinessLogic.Services.Base;
+using Data.Domain;
 using DataAccessLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
