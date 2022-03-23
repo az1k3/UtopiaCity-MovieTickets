@@ -39,7 +39,6 @@ namespace MovieTickets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //TODO: Fixed Birthdate information
         //GET: Actors/Details/Id
         public async Task<IActionResult> Details(int id)
         {

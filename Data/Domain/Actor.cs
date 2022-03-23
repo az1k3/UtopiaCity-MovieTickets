@@ -22,7 +22,7 @@ namespace Data.Domain
         public string FullName { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Bithdate is required")]
         public DateTime Birthdate { get; set; }
 
