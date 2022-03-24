@@ -40,10 +40,7 @@ namespace MovieTickets.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ProfilePictureURL,FullName,Birthdate,PlaceOfBirth")] Producer producer)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(producer);
-            }
+            if (!ModelState.IsValid) return View(producer);
             await _service.AddAsync(producer);
             return RedirectToAction(nameof(Index));
         }
@@ -59,10 +56,7 @@ namespace MovieTickets.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,FullName,Birthdate,PlaceOfBirth")] Producer producer)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(producer);
-            }
+            if (!ModelState.IsValid) return View(producer);
 
             if (id == producer.Id)
             {
