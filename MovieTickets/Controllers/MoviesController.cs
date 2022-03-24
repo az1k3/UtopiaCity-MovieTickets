@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Contexts;
+﻿using BusinessLogic.Services.Base;
+using DataAccessLayer.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -8,17 +9,24 @@ namespace MovieTickets.Controllers
 {
     public class MoviesController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IMoviesService _service;
 
-        public MoviesController(AppDbContext context)
+        public MoviesController(IMoviesService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _context.Movies.Include(n => n.Cinema).OrderBy(n => n.Name).ToListAsync();
+            var allMovies = await _service.GetAllAsync();
             return View(allMovies);
+        }
+
+        //GET: Movies/Details/Id
+        public async Task<IActionResult> Details (int id)
+        {
+            var movieDetails = await _service.GetMovieByIdAsync(id);
+            return View(movieDetails);
         }
     }
 }
