@@ -15,6 +15,7 @@ namespace BusinessLogic.Services.Base
         Task<Movie> GetMovieByIdAsync(int id);
         Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues();
         Task AddNewMovieAsync(NewMovieVM data); 
+        Task UpdateMovieAsync(NewMovieVM data); 
         Task AddAsync(Movie movie);
         Task<Movie> UpdateAsync(int id, Movie newMovie);
         Task DeleteAsync(int id);
