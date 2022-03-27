@@ -33,5 +33,45 @@ namespace BusinessLogic.Services.Cart
         {
             return _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Movie.Price * n.Amount).Sum();
         }
+
+        public void AddItemToCart(Movie movie)
+        {
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+
+            if (shoppingCartItem == null)
+            {
+                shoppingCartItem = new ShoppingCartItem()
+                {
+                    ShoppingCartId = ShoppingCartId,
+                    Movie = movie,
+                    Amount = 1
+                };
+
+                _context.ShoppingCartItems.Add(shoppingCartItem);
+            }
+            else
+            {
+                shoppingCartItem.Amount++;
+            }
+            _context.SaveChanges();
+        }
+
+        public void RemoveItemFromCart(Movie movie)
+        {
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+
+            if (shoppingCartItem != null)
+            {
+                if (shoppingCartItem.Amount > 1)
+                {
+                    shoppingCartItem.Amount--;
+                }
+                else
+                {
+                    _context.ShoppingCartItems.Remove(shoppingCartItem);
+                }
+            }
+            _context.SaveChanges();
+        }
     }
 }
