@@ -1,9 +1,11 @@
 using BusinessLogic.Extensions;
+using BusinessLogic.Services.Cart;
 using Data.Seed;
 using DataAccessLayer.Contexts;
 using DataAccessLayer.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +34,7 @@ namespace MovieTickets
                 .AddDatabase(Configuration)
                 .RegisterServices();
 
+            services.AddSession();
             services.AddControllersWithViews();
         }
 
@@ -52,6 +55,7 @@ namespace MovieTickets
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 

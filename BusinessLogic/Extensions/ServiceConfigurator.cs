@@ -1,5 +1,7 @@
 ﻿using BusinessLogic.Services;
 using BusinessLogic.Services.Base;
+using BusinessLogic.Services.Cart;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,8 @@ namespace BusinessLogic.Extensions
             services.AddScoped<ICinemasService, CinemasService>();
             services.AddScoped<IMoviesService, MoviesService>();
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
             return services;
         }
