@@ -1,12 +1,15 @@
 using BusinessLogic.Extensions;
 using BusinessLogic.Services.Cart;
+using Data.Domain.Identity;
 using Data.Seed;
 using DataAccessLayer.Contexts;
 using DataAccessLayer.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +37,14 @@ namespace MovieTickets
                 .AddDatabase(Configuration)
                 .RegisterServices();
 
+            //Authentication and authorization
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddMemoryCache();
             services.AddSession();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
             services.AddControllersWithViews();
         }
 
@@ -57,6 +67,7 @@ namespace MovieTickets
             app.UseRouting();
             app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -68,6 +79,7 @@ namespace MovieTickets
 
             //Data seed
             AppDbInitializer.Seed(app);
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
         }
     }
