@@ -1,12 +1,15 @@
 ﻿using BusinessLogic.Services.Base;
 using Data.Domain;
+using Data.Static;
 using DataAccessLayer.Contexts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MovieTickets.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class ActorsController : Controller
     {
         private readonly IActorsService _service;
@@ -16,6 +19,7 @@ namespace MovieTickets.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allActors = await _service.GetAllAsync();
@@ -37,6 +41,7 @@ namespace MovieTickets.Controllers
         }
 
         //GET: Actors/Details/Id
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var actorDetails = await _service.GetByIdAsync(id);

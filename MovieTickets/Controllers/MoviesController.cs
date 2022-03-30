@@ -1,6 +1,8 @@
 ﻿using BusinessLogic.Services.Base;
 using Data.Models.Movies;
+using Data.Static;
 using DataAccessLayer.Contexts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace MovieTickets.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class MoviesController : Controller
     {
         private readonly IMoviesService _service;
@@ -18,12 +21,14 @@ namespace MovieTickets.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allMovies = await _service.GetAllAsync();
             return View(allMovies);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
             var allMovies = await _service.GetAllAsync();
@@ -38,6 +43,7 @@ namespace MovieTickets.Controllers
         }
 
         //GET: Movies/Details/Id
+        [AllowAnonymous]
         public async Task<IActionResult> Details (int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
