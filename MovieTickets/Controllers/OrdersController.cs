@@ -1,11 +1,13 @@
 ﻿using BusinessLogic.Services.Base;
 using BusinessLogic.Services.Cart;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MovieTickets.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IMoviesService _moviesService;
