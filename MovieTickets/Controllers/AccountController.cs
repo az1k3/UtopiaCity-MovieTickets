@@ -53,7 +53,6 @@ namespace MovieTickets.Controllers
             TempData["Error"] = "Wrong credentials. Please, try again!";
             return View(loginVM);
         }
-
         public IActionResult Register() => View(new RegisterVM());
 
         [HttpPost]
@@ -88,7 +87,6 @@ namespace MovieTickets.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Movies");
         }
-
         public IActionResult AccessDenied(string ReturnUrl)
         {
             return View();
