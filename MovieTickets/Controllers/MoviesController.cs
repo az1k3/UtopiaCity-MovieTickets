@@ -22,12 +22,6 @@ namespace MovieTickets.Controllers
             _service = service;
         }
 
-        /// <summary>
-        /// For xUnit test
-        /// </summary>
-        public MoviesController() { }
-
-
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
