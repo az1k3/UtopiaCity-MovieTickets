@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Data.Domain.Movie>
+﻿@using System.Globalization;
+@model IEnumerable<Data.Domain.Movie>
 
 @{
     ViewData["Title"] = "Home page";
@@ -61,7 +62,7 @@
                                    asp-controller="Orders"
                                    asp-action="AddItemToShoppingCart"
                                    asp-route-id="@item.Id">
-                                    <i class="bi bi-cart-plus"></i> Buy (@item.Price.ToString("c"))
+                                    <i class="bi bi-cart-plus"></i> Buy (@item.Price.ToString("C", CultureInfo.CreateSpecificCulture("kk-KZ")))
                                 </a>
                             </p>
                         </div>

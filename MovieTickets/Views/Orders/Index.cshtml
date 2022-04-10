@@ -1,4 +1,5 @@
-﻿@using Data.Domain
+﻿@using System.Globalization;
+@using Data.Domain
 @model List<Order>
 
 @{
@@ -34,14 +35,14 @@
                             {
                                 <li>
                                     <div class="alert alert-info" role="alert">
-                                        <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Movie.Name
+                                        <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("C", CultureInfo.CreateSpecificCulture("kk-KZ"))] - @item.Movie.Name
                                     </div>
                                 </li>
                             }
                         </ul>
                     </td>
                     <td class="align-middle">
-                        @order.OrderItems.Select(m => m.Movie.Price * m.Amount).Sum().ToString("c")
+                        @order.OrderItems.Select(m => m.Movie.Price * m.Amount).Sum().ToString("C", CultureInfo.CreateSpecificCulture("kk-KZ"))
                     </td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {

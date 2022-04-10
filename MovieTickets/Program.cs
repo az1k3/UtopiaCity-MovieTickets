@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Identity;
 
 namespace MovieTickets
 {
@@ -18,6 +19,13 @@ namespace MovieTickets
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+        #region Azure Key Vault
+.ConfigureAppConfiguration((context, config) =>
+{
+    var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+    config.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+})
+        #endregion
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
