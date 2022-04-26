@@ -18,17 +18,20 @@ namespace MovieTickets
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-        #region Azure Key Vault
-.ConfigureAppConfiguration((context, config) =>
-{
-    var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
-    config.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
-})
-        #endregion
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+           Host.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((context, config) =>
+               {
+                   #region Azure Key Vault
+                   if (!context.HostingEnvironment.IsDevelopment())
+                   {
+                       var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+                       config.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+                   }
+                   #endregion
+               })
+               .ConfigureWebHostDefaults(webBuilder =>
+               {
+                   webBuilder.UseStartup<Startup>();
+               });
     }
 }
