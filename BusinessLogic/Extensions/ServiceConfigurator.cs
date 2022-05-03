@@ -21,6 +21,7 @@ namespace BusinessLogic.Extensions
             services.AddScoped<IMoviesService, MoviesService>();
             services.AddScoped<IOrdersService, OrdersService>();
 
+            //HttpContext needs for ISession -> Shopping Cart
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 

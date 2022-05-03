@@ -24,6 +24,12 @@ namespace BusinessLogic.Services.Cart
             _context = context;
         }
 
+        /// <summary>
+        /// Runs on every request
+        /// CartId saved for one Session
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static ShoppingCart GetShoppingCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
@@ -35,6 +41,10 @@ namespace BusinessLogic.Services.Cart
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
+        /// <summary>
+        /// Work with ViewComponent => ShoppingCartSummary
+        /// </summary>
+        /// <returns></returns>
         public List<ShoppingCartItem> GetShoppingCartItems()
         {
             return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems

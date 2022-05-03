@@ -164,7 +164,7 @@ namespace Data.Seed
                         {
                             Name = "Spider-Man: No Way Home",
                             Description = "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
-                            Price = 39.50,
+                            Price = 2090,
                             ImageURL = "https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_FMjpg_UX1000_.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(10),
@@ -176,7 +176,7 @@ namespace Data.Seed
                         {
                             Name = "Inception",
                             Description = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-                            Price = 29.50,
+                            Price = 1890,
                             ImageURL = "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(3),
@@ -188,7 +188,7 @@ namespace Data.Seed
                         {
                             Name = "Legend",
                             Description = "Identical twin gangsters Ronald and Reginald Kray terrorize London during the 1960s.",
-                            Price = 39.50,
+                            Price = 1890,
                             ImageURL = "https://m.media-amazon.com/images/M/MV5BMjE0MjkyODQ3NF5BMl5BanBnXkFtZTgwNDM1OTk1NjE@._V1_.jpg",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(7),
@@ -200,8 +200,8 @@ namespace Data.Seed
                         {
                             Name = "Soul",
                             Description = "After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.",
-                            Price = 39.50,
-                            ImageURL = "https://itc.ua/wp-content/uploads/2020/03/soul-poster.jpg",
+                            Price = 1690,
+                            ImageURL = "https://www.themoviedb.org/t/p/w1280/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
@@ -212,8 +212,8 @@ namespace Data.Seed
                         {
                             Name = "Once Upon a Time in... Hollywood",
                             Description = "A faded television actor and his stunt double strive to achieve fame and success in the final years of Hollywood's Golden Age in 1969 Los Angeles.",
-                            Price = 39.50,
-                            ImageURL = "https://upload.wikimedia.org/wikipedia/ru/e/ef/Once_Upon_a_Time_in_Hollywood_cover.png",
+                            Price = 2090,
+                            ImageURL = "https://www.themoviedb.org/t/p/w1280/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-2),
                             CinemaId = 2,
@@ -224,8 +224,8 @@ namespace Data.Seed
                         {
                             Name = "The Gentlemen",
                             Description = "An American expat tries to sell off his highly profitable marijuana empire in London, triggering plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him.",
-                            Price = 39.50,
-                            ImageURL = "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/cfb3f12f82b18ad989a01e0a2a9bfab06571e6cd94f831b8afbfe6a028e80233._RI_V_TTW_.jpg",
+                            Price = 1890,
+                            ImageURL = "https://www.themoviedb.org/t/p/w1280/jtrhTYB7xSrJxR1vusu99nvnZ1g.jpg",
                             StartDate = DateTime.Now.AddDays(3),
                             EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 3,
